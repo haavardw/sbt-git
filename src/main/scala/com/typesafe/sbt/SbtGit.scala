@@ -263,7 +263,7 @@ object SbtGit {
           version <- releaseTagVersion(tag)
         } yield version + suffix
       // NOTE - Selecting the last tag or the first tag should be an option.
-      releaseVersions.sortWith { versionsort.VersionHelper.compare(_, _) > 0 }.headOption
+      releaseVersions.reverse.headOption
     }
     def overrideVersion(versionProperty: String) = Option(sys.props(versionProperty))
 
